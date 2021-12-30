@@ -98,9 +98,9 @@ public function addContracts()
          $config2['upload_path']=$target_dir;
          $config2['allowed_types']='jpg|jpeg|png|gif|JPG|JPEG|PNG|pdf|PDF|txt';
          $config2['max_size']='40960';
-         $config2['overwrite'] = FALSE;
+         // $config2['overwrite'] = FALSE;
          $config2['remove_spaces'] = FALSE;
-         $config2['file_name'] = $file2;
+         $config2['file_name'] =  date('Y-m-d-H-i-s') . $file2;
          $this->upload->initialize($config2);
          $upload2=$this->upload->do_upload('upload_file');
          $error = array('error' => $this->upload->display_errors());
@@ -206,7 +206,7 @@ public function update()
       $config2['max_size']='40960';
       $config2['overwrite'] = FALSE;
       $config2['remove_spaces'] = FALSE;
-      $config2['file_name'] = $file2;
+      $config2['file_name'] =  date('Y-m-d-H-i-s') . $file2;
       $this->upload->initialize($config2);
 
       $oldfile = $_POST ['old_img_file'];
@@ -293,7 +293,7 @@ public function deleteContractor()
             $config['max_size'] = '40960';
             $config['overwrite'] = FALSE;
             $config['remove_spaces'] = FALSE;
-            $config['file_name'] = $_FILES['upload_files']['name'][$i];
+            $config['file_name'] =  date('Y-m-d-H-i-s') . $_FILES['upload_files']['name'][$i];
 
             $_FILES['f']['name'] =  $_FILES['upload_files']['name'][$i];
             $_FILES['f']['type'] = $_FILES['upload_files']['type'][$i];
@@ -404,7 +404,7 @@ public function updatedoc()
             $config['max_size'] = '40960';
             $config['overwrite'] = FALSE;
             $config['remove_spaces'] = FALSE;
-            $config['file_name'] = $_FILES['upload_files']['name'][$i];
+            $config['file_name'] =  date('Y-m-d-H-i-s') . $_FILES['upload_files']['name'][$i];
 
             $_FILES['f']['name'] =  $_FILES['upload_files']['name'][$i];
             $_FILES['f']['type'] = $_FILES['upload_files']['type'][$i];
